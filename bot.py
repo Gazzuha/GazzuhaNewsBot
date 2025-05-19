@@ -60,3 +60,19 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+    # Заглушка для Render — не даёт ошибку из-за порта
+from flask import Flask
+import threading
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Bot is running"
+
+def run_flask():
+    app.run(host="0.0.0.0", port=10000)
+
+# Запускаем Flask в отдельном потоке
+threading.Thread(target=run_flask).start()
