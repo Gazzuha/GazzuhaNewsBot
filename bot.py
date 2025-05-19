@@ -44,7 +44,7 @@ def events(update, context):
             if not post.stickied:
                 messages.append(f"• [{post.title}]({post.url})")
     full_message = "\n".join(messages)
-    update.message.reply_text(full_message, parse_mode=telegram.constants.ParseMode.MARKDOWN)
+    update.message.reply_text(full_message, parse_mode="Markdown")
 
 # ----- Запуск бота -----
 def run_bot():
